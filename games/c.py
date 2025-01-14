@@ -4,11 +4,17 @@ def c():
         return n == sum(d ** len(digits) for d in digits)
 
     while True:
-        n = int(input("Masukkan angka (tekan 0 untuk keluar): "))
+        user_input = input("Masukkan angka (ketik 'exit' untuk keluar dari game): ")
         
-        if n == 0:
-            print("Program selesai.")
+        if user_input.lower() == "exit":
+            print("Program selesai. Keluar dari Game 3")
             break
+
+        try:
+            n = int(user_input)
+        except ValueError:
+            print("Input harus berupa angka. Silahkan coba lagi.")
+            continue
 
         if is_armstrong(n):
             print(f"{n} adalah bilangan Armstrong")
