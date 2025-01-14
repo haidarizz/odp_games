@@ -1,4 +1,3 @@
-
 def b():
     """
     Diberikan sebuah list angka, cari pasangan angka dengan selisih terkecil.
