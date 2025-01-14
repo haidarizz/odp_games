@@ -9,23 +9,31 @@ def b():
     15 16
     """
 
-    data = input('Masukkan angka yang diinginkan (pisahkan dengan koma, contoh: 1, 2, 3): ')
-    data = [int(x) for x in data.split(",")]
+    while True:
+        try:
+            data = input('Masukkan angka yang diinginkan (pisahkan dengan koma, contoh: 1, 2, 3): ')
+            data = [int(x) for x in data.split(",")]
 
-    data.sort()
+            if len(data) < 2:
+                print("Masukkan setidaknya dua angka. Coba lagi.")
+                continue
 
-    def bb(data):
-        selisih = []
-        for i in range(len(data)-1):
-            selisih.append(abs(data[i] - data[i+1]))
-        return selisih
+            data.sort()
 
-    hasil = bb(data)
-    hasill = hasil.index(min(hasil))
-    hasill
+            def bb(data):
+                selisih = []
+                for i in range(len(data) - 1):
+                    selisih.append(abs(data[i] - data[i + 1]))
+                return selisih
 
-    u1 = data[hasill]
-    u2 = data[hasill+1]
-    print('Pasangan angka dengan selisih terkecil adalah', u1, 'dan',u2 )
-    # write the code solution here
-    # print("Mohon maaf, permainan B belum tersedia!")
+            hasil = bb(data)
+            hasill = hasil.index(min(hasil))
+
+            u1 = data[hasill]
+            u2 = data[hasill + 1]
+
+            print('Pasangan angka dengan selisih terkecil adalah', u1, 'dan', u2)
+            return u1, u2
+
+        except ValueError:
+            print("Masukkan input data yang sesuai (angka). Coba lagi.")
